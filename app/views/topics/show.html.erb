@@ -11,7 +11,7 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= image_tag(post.thumb.url) if post.image? %>
+            <%= image_tag(post.image.thumb.url) if post.image? %>
             <%= link_to (markdown post.title), [@topic, post] %>
           </h4>
           <small>
@@ -23,6 +23,7 @@
         </div>
       </div>
     <% end %>
+    <%= will_paginate @posts %>
   </div>
   <div class="col-md-4">
     <% if policy(Post.new).create? %>
