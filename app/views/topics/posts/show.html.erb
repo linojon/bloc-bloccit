@@ -10,7 +10,7 @@
     </small>
     <div class="post-image"><%= image_tag(@post.image.url) if @post.image? %>
     <p><%= markdown @post.body %></p>
-    <h3>Comments</h3>
+    <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
     <%= render partial: 'comments/comment', collection: @comments %>
     <% if current_user %>
       <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
